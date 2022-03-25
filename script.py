@@ -9,7 +9,7 @@ import pyfiglet
 
 def scrap_results():
     name = pyfiglet.figlet_format("Hey-Bandar")
-    welcome = pyfiglet.figlet_format("Welcome-to Google-Map Scrapping!")
+    welcome = pyfiglet.figlet_format("Welcome-to Google-Map Scraping!")
     print(name)
     print(welcome)
     word_term = input("Please enter word term to search on Google Map")
