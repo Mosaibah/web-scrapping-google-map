@@ -23,7 +23,7 @@ def scrap_results():
         "type": "search",
         "start": "0",
         "ll": f"@{address}",
-        "api_key": os.environ["serpapi"]
+        "api_key": "dc6b3115d8f60c154a001daa6c17cb9a0fc65b8a9ab6bbf9b78895ebd7e7ecce"
     }
  
  
