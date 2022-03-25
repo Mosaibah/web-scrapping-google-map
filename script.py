@@ -3,9 +3,15 @@ from re import S
 from serpapi import GoogleSearch
 from urllib.parse import urlsplit, parse_qsl
 import pandas as pd
+import pyfiglet
 
 
-def case_law_results():
+
+def scrap_results():
+    name = pyfiglet.figlet_format("Hey-Bandar")
+    welcome = pyfiglet.figlet_format("Welcome-to Google-Map Scrapping!")
+    print(name)
+    print(welcome)
     word_term = input("Please enter word term to search on Google Map")
     address = input("Please enter the address")
 
@@ -17,7 +23,7 @@ def case_law_results():
         "type": "search",
         "start": "0",
         "ll": f"@{address}",
-        "api_key": "595a89814a7aec5c3bdb1c42d6fffdffc90ab61a6eb852f364e6f866531abce9"
+        "api_key": os.environ["serpapi"]
     }
  
  
@@ -27,9 +33,8 @@ def case_law_results():
 
     loop_is_true = True
     while loop_is_true:
+
       results = search.get_dict()
-
-
       if "local_results" in results:
         for result in results["local_results"]:
           title = result["title"]
@@ -54,10 +59,10 @@ def case_law_results():
     return results_data
 
 
-def save_case_law_results_to_csv():
-    print("Waiting for case law results to save..")
-    pd.DataFrame(data=case_law_results()).to_csv("google_scholar_case_law_results.csv", encoding="utf-8-sig", index=False)
+def save_to_csv():
+    print("Waiting to save..")
+    pd.DataFrame(data=scrap_results()).to_csv("google_map_scrapping.csv", encoding="utf-8-sig", index=False)
+    done = pyfiglet.figlet_format("Done")
+    print(done)
 
-    print("Case Law Results Saved.")
-
-save_case_law_results_to_csv()
+save_to_csv()
